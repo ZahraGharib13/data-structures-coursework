@@ -1,28 +1,40 @@
 # Heap Exercises
 
-Exercises from the Data Structures course focused on heap behavior and deletion.
+Exercises from the Data Structures course focused on heap behavior, deletion, and recursive reconstruction.
 
 ## Exercise 1 — Heap Deletion Candidates
 
-`heap_deletion_candidates.py` determines which elements of a heap can be removed while still allowing the remaining structure to be restored as a valid complete min-heap.
+`heap_deletion_candidates.py` checks which heap elements can be removed while still allowing the remaining structure to be restored as a valid complete min-heap.
 
-## What It Demonstrates
+### Concepts
 
 - Array-based heap representation
 - Complete binary tree indexing
 - Parent/child relationships
 - Recursive heap restoration
-- Candidate checking after deletion
+- Valid deletion candidates
 
-## How It Works
+## Exercise 2 — Count Possible Heap Deletion Orders
 
-For each possible deletion candidate, the program:
+`heap_deletion_order_count.py` recursively explores valid deletion candidates and counts how many complete deletion orders are possible.
 
-1. Copies the heap.
-2. Removes the selected element.
-3. Replaces the gap by repeatedly moving the smaller child upward.
-4. Recursively checks whether the deletion can end at the final array position.
-5. Prints all values that can be valid deletion candidates.
+### Concepts
+
+- Min-heap deletion
+- Recursive search
+- Backtracking-style enumeration
+- Heap restructuring
+- Counting valid operation sequences
+
+### How It Works
+
+The program:
+
+1. Finds elements that can validly be deleted from the current heap.
+2. Deletes one candidate and restores the heap.
+3. Recursively repeats the process on the smaller heap.
+4. Builds all valid deletion sequences.
+5. Prints the number of possible sequences.
 
 ## Run
 
@@ -30,12 +42,21 @@ For each possible deletion candidate, the program:
 python heap_deletion_candidates.py
 ```
 
+and:
+
+```bash
+python heap_deletion_order_count.py
+```
+
 ## Project Structure
 
 ```text
 04-heaps/
 ├── heap_deletion_candidates.py
+├── heap_deletion_order_count.py
 └── README.md
 ```
 
-A second heap exercise will be added to this same folder.
+## About
+
+These exercises were completed as part of a Data Structures course and demonstrate heap indexing, deletion logic, recursion, and enumeration of valid heap-operation sequences.
